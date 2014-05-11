@@ -175,7 +175,8 @@ while(i<=count){
 res<-res[,c(68:67,1:(ncol(res)-2))]
 
 
-
+# export result to txt file
+write.table(res,"tidyDataSet.txt", sep="        ")
 
 
 
