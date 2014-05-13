@@ -1,3 +1,7 @@
+########################################################
+#   1   Merges the training and the test sets to create one data set.
+
+
 test<-read.table("test/X_test.txt")
 train<-read.table("./train/X_train.txt")
 data1<-rbind(train,test)
@@ -20,6 +24,7 @@ data3<-cbind(data2,performer_col)
 
 
 ########################################################################
+# 2 Extracts only the measurements on the mean and standard deviation for each measurement
 
 #copy and paste manually relevant variables from "features.txt" into a new 
 #txt file, called "relevant_var.txt"
@@ -37,6 +42,7 @@ relevant_var_index2<-c(relevant_var_index,a)
 data4<-data3[,relevant_var_index2]
 
 ##########################################################################
+#    3 Uses descriptive activity names to name the activities in the data set
 #rename activities column with relevant name
 
 labels<-read.table("activity_labels.txt", sep=" ")
@@ -81,7 +87,7 @@ while(i<=count){
 
 
 ##########################################################################
-#rename columns
+# 4 rename columns
 tmp<-as.character(relevant_var[,2])
 tmp1<-c("activity","tester_id")
 cn<-c(tmp,tmp1)
@@ -89,7 +95,7 @@ colnames(data4)<-cn
 
 
 #####################################################################
-#Create new dataset with average values for each activity for each test performer
+#  5  Create new dataset with average values for each activity for each test performer
 
 
 
